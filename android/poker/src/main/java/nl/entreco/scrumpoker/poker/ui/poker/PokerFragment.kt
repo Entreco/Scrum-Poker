@@ -12,13 +12,14 @@ import nl.entreco.scrumpoker.poker.databinding.FragmentPokerBinding
 
 class PokerFragment : Fragment() {
 
+    private lateinit var binding: FragmentPokerBinding
     private val viewModel: PokerViewModel by lazy { ViewModelProviders.of(this).get(PokerViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = DataBindingUtil.inflate<FragmentPokerBinding>(inflater, R.layout.fragment_poker, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_poker, container, false)
         binding.viewModel = viewModel
         return binding.root
     }

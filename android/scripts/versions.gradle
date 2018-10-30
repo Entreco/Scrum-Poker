@@ -10,6 +10,7 @@ ext {
     xAppCompat = "1.0.0"
     xConstraintLayout = "2.0.0-alpha2"
     xLifecycleExtensions = "2.0.0"
+    xDynamicAnimation = "1.0.0"
 
     // Test
     jUnit = "4.12"
