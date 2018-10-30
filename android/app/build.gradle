@@ -1,14 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
-    
-
+    compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
         applicationId "nl.entreco.scrumpoker.app"
-        minSdkVersion 23
-        targetSdkVersion 28
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
