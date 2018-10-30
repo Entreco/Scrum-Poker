@@ -1,6 +1,6 @@
 package nl.entreco.scrumpoker.poker
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import nl.entreco.scrumpoker.poker.ui.poker.PokerFragment
 

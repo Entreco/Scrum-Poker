@@ -5,4 +5,14 @@ ext {
     compileSdkVersion = 28
     minSdkVersion = 23
     targetSdkVersion = 28
+
+    // Libs
+    xAppCompat = "1.0.0"
+    xConstraintLayout = "2.0.0-alpha2"
+    xLifecycleExtensions = "2.0.0"
+
+    // Test
+    jUnit = "4.12"
+    xTestRunner = "1.1.0"
+    xEspressoCore = "3.1.0"
 }

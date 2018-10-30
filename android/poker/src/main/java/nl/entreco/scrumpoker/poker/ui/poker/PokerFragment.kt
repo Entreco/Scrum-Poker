@@ -1,31 +1,29 @@
 package nl.entreco.scrumpoker.poker.ui.poker
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import nl.entreco.scrumpoker.poker.R
+import nl.entreco.scrumpoker.poker.databinding.FragmentPokerBinding
 
 class PokerFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = PokerFragment()
-    }
-
-    private lateinit var viewModel: PokerViewModel
+    private val viewModel: PokerViewModel by lazy { ViewModelProviders.of(this).get(PokerViewModel::class.java) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_poker, container, false)
+        val binding = DataBindingUtil.inflate<FragmentPokerBinding>(inflater, R.layout.fragment_poker, container, false)
+        binding.viewModel = viewModel
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(PokerViewModel::class.java)
+    companion object {
+        fun newInstance() = PokerFragment()
     }
-
 }
