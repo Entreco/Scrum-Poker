@@ -7,6 +7,7 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.util.Log
 import android.widget.FrameLayout
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.Bindable
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
@@ -34,6 +35,7 @@ class PokerStackedView @JvmOverloads constructor(
             val pokerCardView = PokerCardView(context, card, this)
             pokerCardView.setOrder(index, cards.size - 1)
             addView(pokerCardView)
+            pokerCards.add(pokerCardView)
         }
     }
 
@@ -50,16 +52,23 @@ class PokerStackedView @JvmOverloads constructor(
         canvas?.drawCircle(centerX, centerY, 200F, centerPaint)
     }
 
-    override fun onRelease(view: PokerCardView) {
+    override fun onCancelled(view: PokerCardView) {
+        releaseToCenter(view)
+    }
+
+    override fun onThrownAway(view: PokerCardView) {
 
         pokerCards.remove(view)
-        view.setOrder(0, pokerCards.size)
         pokerCards.add(0, view)
+        pokerCards.forEachIndexed { index, card ->
+            card.setOrder(index, pokerCards.size - 1)
+        }
+        releaseToCenter(view)
+    }
 
+    private fun releaseToCenter(view: PokerCardView) {
         val cardXposition = 0F //centerX - view.width
         val cardYposition = 0F //centerY - view.height
-
-
 
         SpringAnimation(view, DynamicAnimation.TRANSLATION_X, cardXposition).apply {
             //            velocityTracker.computeCurrentVelocity(1000)
@@ -78,8 +87,5 @@ class PokerStackedView @JvmOverloads constructor(
             spring.stiffness = SpringForce.STIFFNESS_LOW
             start()
         }
-
-        // Converting dp per second to pixels per second
-        //        val pixelPerSecond: Float = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpPerSecond, resources.displayMetrics)
     }
 }
