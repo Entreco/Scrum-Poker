@@ -1,19 +1,19 @@
 package nl.entreco.scrumpoker.poker.ui
 
 import android.content.Context
-import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
+import android.graphics.*
 import android.util.AttributeSet
 import android.util.Log
+import android.view.WindowManager
 import android.widget.FrameLayout
-import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.Toast
 import androidx.databinding.Bindable
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
 import nl.entreco.scrumpoker.poker.PokerCardView
 import nl.entreco.scrumpoker.poker.ui.poker.PokerCardModel
+import kotlin.math.min
 
 class PokerStackedView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -64,6 +64,11 @@ class PokerStackedView @JvmOverloads constructor(
             card.setOrder(index, pokerCards.size - 1)
         }
         releaseToCenter(view)
+    }
+
+    override fun onSelected(view: PokerCardView) {
+        Toast.makeText(context, view.card.value.get(), Toast.LENGTH_SHORT).show()
+        view.flip()
     }
 
     private fun releaseToCenter(view: PokerCardView) {
