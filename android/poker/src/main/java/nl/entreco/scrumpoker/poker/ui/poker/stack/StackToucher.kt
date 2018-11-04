@@ -69,7 +69,8 @@ class StackToucher(
                             .start()
 
                         skipListeners.forEach {
-                            it.onThrownAway(view) }
+                            it.onNextCard(view)
+                        }
                     } else {
                         dragListener.onCancelled(view)
                     }

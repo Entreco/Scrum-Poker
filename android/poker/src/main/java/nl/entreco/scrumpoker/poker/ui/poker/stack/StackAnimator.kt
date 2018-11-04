@@ -1,5 +1,6 @@
 package nl.entreco.scrumpoker.poker.ui.poker.stack
 
+import android.view.View
 import androidx.dynamicanimation.animation.DynamicAnimation
 import androidx.dynamicanimation.animation.SpringAnimation
 import androidx.dynamicanimation.animation.SpringForce
@@ -77,8 +78,7 @@ class StackAnimator : CardAnimator, StackClicker.OnDragListener, StackClicker.On
             .start()
     }
 
-    private fun renderAsFlung(card: PokerCardView) {
-
+    private fun renderAsFlung(card: View) {
         card.animate().translationXBy(-1000F).rotationYBy(-10F).scaleX(1F).scaleY(1F).setDuration(0).start()
         releaseToCenter(card)
     }
@@ -87,25 +87,24 @@ class StackAnimator : CardAnimator, StackClicker.OnDragListener, StackClicker.On
         releaseToCenter(view)
     }
 
-    override fun onThrownAway(view: PokerCardView) {
+    override fun onNextCard(view: PokerCardView) {
         releaseToCenter(view)
     }
 
-    private fun releaseToCenter(view: PokerCardView) {
-        val cardXposition = 0F //centerX - view.width
-        val cardYposition = 0F //centerY - view.height
-
-        SpringAnimation(view, DynamicAnimation.TRANSLATION_X, cardXposition).apply {
-            //            velocityTracker.computeCurrentVelocity(1000)
-            //            val velocity = velocityTracker.yVelocity
+    fun releaseToCenter(view: View, done:()->Unit = {}) {
+        SpringAnimation(view, DynamicAnimation.TRANSLATION_X, 0F).apply {
             setStartVelocity(0F)
 
             spring.dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
             spring.stiffness = SpringForce.STIFFNESS_LOW
+            addEndListener { animation, canceled, value, velocity ->
+                done()
+            }
             start()
+
         }
 
-        SpringAnimation(view, DynamicAnimation.TRANSLATION_Y, cardYposition).apply {
+        SpringAnimation(view, DynamicAnimation.TRANSLATION_Y, 0F).apply {
             setStartVelocity(0F)
 
             spring.dampingRatio = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY

@@ -50,6 +50,10 @@ class PokerCardView constructor(
         setMeasuredDimension(width, height)
     }
 
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
+
     fun flip() {
         binding.cardFlipper.showNext()
     }

@@ -1,8 +1,8 @@
-package nl.entreco.scrumpoker.poker
+package nl.entreco.scrumpoker.poker.ui.poker
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import nl.entreco.scrumpoker.poker.ui.poker.PokerFragment
+import nl.entreco.scrumpoker.poker.R
 
 class PokerActivity : AppCompatActivity() {
 

@@ -3,7 +3,7 @@
           package="nl.entreco.scrumpoker.poker">
 
     <application>
-        <activity android:name=".PokerActivity">
+        <activity android:name=".ui.poker.PokerActivity">
             <intent-filter
                     android:order="1"
                     android:autoVerify="true">

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         >
 
@@ -18,59 +17,11 @@
             android:padding="16dp"
             android:clipToPadding="false">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-                style="@style/Card.Front"
-                android:id="@+id/front"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/card"
-                android:elevation="8dp"
-                android:foreground="?android:attr/selectableItemBackground">
+        <include
+                layout="@layout/poker_front"
+                app:value="@{card.value}"/>
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{card.value}"
-                    android:textColor="#333333"
-                    android:textSize="20sp"
-                    android:layout_margin="12dp"
-                    android:gravity="center"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:text="@string/app_name"/>
+        <include layout="@layout/poker_back"/>
 
-            <TextView
-                    android:id="@+id/cardView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="@{card.value}"
-                    android:textColor="#333333"
-                    android:textSize="60sp"
-                    android:gravity="center"
-                    tools:text="@string/app_name"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{card.value}"
-                    android:textColor="#333333"
-                    android:textSize="20sp"
-                    android:gravity="center"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:rotation="180"
-                    android:layout_margin="12dp"
-                    tools:text="@string/app_name"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <TextView
-                style="@style/Card.Back"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="#333333"
-                android:textSize="100sp"
-                android:gravity="center"/>
     </ViewFlipper>
-
-
 </layout>

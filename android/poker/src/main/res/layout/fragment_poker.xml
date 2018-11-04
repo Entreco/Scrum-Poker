@@ -15,7 +15,8 @@
             android:layout_height="match_parent"
             tools:context=".ui.poker.PokerFragment">
 
-        <nl.entreco.scrumpoker.poker.ui.PokerStackedView
+        <nl.entreco.scrumpoker.poker.ui.poker.PokerStackedView
+                android:id="@+id/pokerStackView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:cards="@{viewModel.cards}"

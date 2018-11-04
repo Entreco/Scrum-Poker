@@ -22,6 +22,7 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.dynamicanimation:dynamicanimation:$xDynamicAnimation"
+    implementation 'me.everything:overscroll-decor-android:1.0.4'
 
     testImplementation "junit:junit:$jUnit"
 
