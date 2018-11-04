@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Card">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:elevation">2dp</item>
+    </style>
+
+    <style name="Card.Front">
+        <item name="android:background">@drawable/card</item>
+    </style>
+
+    <style name="Card.Back">
+        <item name="android:background">@drawable/card_back</item>
+    </style>
+</resources>
