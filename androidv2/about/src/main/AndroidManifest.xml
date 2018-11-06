@@ -1,0 +1,20 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:dist="http://schemas.android.com/apk/distribution"
+          package="nl.entreco.scrumpoker.about">
+
+    <dist:module
+            dist:onDemand="true"
+            dist:title="@string/title_about">
+        <dist:fusing dist:include="true"/>
+    </dist:module>
+
+    <application android:name="nl.entreco.scrumpoker.PokerApp">
+        <activity android:name=".AboutActivity"
+                  android:theme="@style/OnboardingTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
