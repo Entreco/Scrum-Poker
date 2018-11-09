@@ -1,16 +1,15 @@
 package nl.entreco.scrumpoker
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.Menu
-import android.view.MenuItem
 
-import kotlinx.android.synthetic.main.activity_main.*
-
-class SplashActivity : BaseA() {
+class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val intent = Intent(Intent.ACTION_VIEW).setClassName(this, "nl.entreco.scrumpoker.poker.PokerActivity")
+        startActivity(intent)
+        finish()
     }
+
 }
