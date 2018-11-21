@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ScrumPoker.iml" filepath="$PROJECT_DIR$/ScrumPoker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libcore/libcore.iml" filepath="$PROJECT_DIR$/libcore/libcore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/poker/poker.iml" filepath="$PROJECT_DIR$/poker/poker.iml" />
+    </modules>
+  </component>
+</project>
