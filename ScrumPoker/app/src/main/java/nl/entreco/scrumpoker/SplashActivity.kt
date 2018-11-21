@@ -7,9 +7,8 @@ class SplashActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(Intent.ACTION_VIEW).setClassName(this, "nl.entreco.scrumpoker.poker.PokerActivity")
+        val intent = Intent(Intent.ACTION_VIEW).setClassName(this, "nl.entreco.scrumpoker.poker.select.SelectCardActivity")
         startActivity(intent)
         finish()
     }
-
 }

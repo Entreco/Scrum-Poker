@@ -7,14 +7,14 @@
 
         <variable
                 name="vm"
-                type="nl.entreco.scrumpoker.poker.PokerViewModel"/>
+                type="nl.entreco.scrumpoker.poker.select.SelectCardViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#F5F0F0"
-            tools:context="nl.entreco.scrumpoker.poker.PokerActivity">
+            tools:context="nl.entreco.scrumpoker.poker.select.SelectCardActivity">
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -26,13 +26,14 @@
                 android:clipToPadding="false"
                 tools:listitem="@layout/card"/>
 
-        <nl.entreco.scrumpoker.poker.toggle.AnimatedToggle
+        <nl.entreco.scrumpoker.poker.select.toggle.AnimatedToggle
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="18dp"
                 android:elevation="10dp"
                 android:background="@drawable/thumb_bg"
                 app:onCheckChangedListener="@{(view, isChecked) -> vm.toggle(isChecked)}"
+                app:onProgressChangedListener="@{(view, progress) -> vm.slide(view, progress)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
