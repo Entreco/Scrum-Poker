@@ -1,0 +1,34 @@
+apply plugin: 'com.android.dynamic-feature'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 24
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':app')
+    implementation project(':libcore')
+
+    implementation "androidx.appcompat:appcompat:$xAppcompat"
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$xLifecycle"
+
+    implementation "androidx.constraintlayout:constraintlayout:$xConstraintLayout"
+    implementation "androidx.recyclerview:recyclerview:$xRecyclerView"
+    implementation "com.google.android.material:material:$material"
+
+}
