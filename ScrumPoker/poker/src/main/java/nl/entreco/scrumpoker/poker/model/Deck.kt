@@ -1,4 +1,4 @@
-package nl.entreco.scrumpoker.poker
+package nl.entreco.scrumpoker.poker.model
 
 class Deck(initial: List<Card>) {
 
@@ -6,13 +6,11 @@ class Deck(initial: List<Card>) {
         addAll(initial)
     }
 
-    fun shuffle(): List<Card> {
-        return cards.shuffled()
+    fun get() : List<Card>{
+        return cards.toList()
     }
 
-    fun roll(): List<Card> {
-        cards.add(0, cards.last())
-        cards.removeAt(cards.size - 1)
-        return cards
+    fun shuffle(): List<Card> {
+        return cards.shuffled()
     }
 }
