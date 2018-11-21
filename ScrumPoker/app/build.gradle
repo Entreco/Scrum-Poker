@@ -3,15 +3,18 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 28
+    def config = rootProject.extensions.getByName("ext")
+    compileSdkVersion config.compileSdkVersion
+
     defaultConfig {
         applicationId "nl.entreco.scrumpoker"
-        minSdkVersion 24
-        targetSdkVersion 28
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false

@@ -1,12 +1,11 @@
-package nl.entreco.scrumpoker.poker
+package nl.entreco.scrumpoker.poker.select
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import nl.entreco.scrumpoker.BaseActivity
+import nl.entreco.scrumpoker.poker.R
 import nl.entreco.scrumpoker.poker.databinding.ActivityPokerBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
@@ -15,16 +14,16 @@ import org.koin.standalone.StandAloneContext.loadKoinModules
 import java.util.concurrent.atomic.AtomicBoolean
 import org.koin.android.ext.android.inject
 
-class PokerActivity : BaseActivity() {
+class SelectCardActivity : BaseActivity() {
 
     val pokerModule = module {
-        viewModel { PokerViewModel() }
+        viewModel { SelectCardViewModel() }
         single { CardsAdapter() }
     }
 
     private val showStack = AtomicBoolean(false)
     private lateinit var binding: ActivityPokerBinding
-    private val viewModel: PokerViewModel by viewModel()
+    private val viewModel: SelectCardViewModel by viewModel()
     private val adapter: CardsAdapter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {

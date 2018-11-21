@@ -6,4 +6,7 @@
     <color name="green">#42D87C</color>
     <color name="pink">#F2F0F0</color>
     <color name="pink_dark">#F3E4E4</color>
+
+
+    <color name="card_ripple">#D8D0D0</color>
 </resources>

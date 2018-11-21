@@ -1,4 +1,4 @@
-package nl.entreco.scrumpoker.poker.toggle
+package nl.entreco.scrumpoker.poker.select.toggle
 
 import android.view.View
 

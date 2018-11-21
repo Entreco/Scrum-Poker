@@ -1,3 +1,5 @@
 package nl.entreco.scrumpoker.poker.model
 
-data class Card(val id: Long, val name: String)
+import androidx.annotation.StringRes
+
+data class Card(val id: Long, @StringRes val value: Int)

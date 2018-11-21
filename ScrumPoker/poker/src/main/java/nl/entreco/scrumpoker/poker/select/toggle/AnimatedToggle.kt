@@ -1,4 +1,4 @@
-package nl.entreco.scrumpoker.poker.toggle
+package nl.entreco.scrumpoker.poker.select.toggle
 
 import android.content.Context
 import android.util.AttributeSet
@@ -28,6 +28,9 @@ class AnimatedToggle @JvmOverloads constructor(
 
     @Bindable
     var onCheckChangedListener: OnCheckChangedListener? = null
+
+    @Bindable
+    var onProgressChangedListener: OnProgessChangedListener? = null
 
     init {
         binding.thumb.setOnTouchListener(this)
@@ -87,6 +90,7 @@ class AnimatedToggle @JvmOverloads constructor(
 
     private fun moveTo(percentage: Float) {
         binding.thumb.setImageLevel((percentage / 10).toInt())
+        onProgressChangedListener?.onChanged(this, percentage / 100)
     }
 
     private fun animateTo(percentage: Float) {
@@ -94,8 +98,9 @@ class AnimatedToggle @JvmOverloads constructor(
         binding.thumb.animate()
             .translationX(if (new) maximumWidth else 0F)
             .setUpdateListener {
-                val level = (binding.thumb.translationX / maximumWidth * 10).toInt()
-                binding.thumb.setImageLevel(level)
+                val percentage = (binding.thumb.translationX / maximumWidth)
+                binding.thumb.setImageLevel((percentage * 10).toInt())
+                onProgressChangedListener?.onChanged(this, percentage)
             }
             .start()
 

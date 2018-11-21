@@ -5,54 +5,61 @@
         android:width="24dp">
 
     <group
-            android:name="card1"
-            android:rotation="6.3"
-            android:translateY="-57"
-            android:translateX="0">
-        <path
-                android:fillColor="#828282"
-                android:fillType="nonZero"
-                android:pathData="M104.193,101.925L173.291,90.981A6.27,6.27 126,0 1,180.465 96.193L196.572,197.885A6.27,6.27 126,0 1,191.36 205.059L122.261,216.003A6.27,6.27 126,0 1,115.087 210.791L98.981,109.099A6.27,6.27 126,0 1,104.193 101.925z"
-                android:strokeColor="#00000000"
-                android:strokeWidth="1"/>
-    </group>
+            android:name="all"
+            android:pivotX="170"
+            android:pivotY="170"
+            android:scaleX="0.85"
+            android:scaleY="0.85">
+        <group
+                android:name="card1"
+                android:rotation="6.3"
+                android:translateY="-57"
+                android:translateX="0">
+            <path
+                    android:fillColor="#828282"
+                    android:fillType="nonZero"
+                    android:pathData="M104.193,101.925L173.291,90.981A6.27,6.27 126,0 1,180.465 96.193L196.572,197.885A6.27,6.27 126,0 1,191.36 205.059L122.261,216.003A6.27,6.27 126,0 1,115.087 210.791L98.981,109.099A6.27,6.27 126,0 1,104.193 101.925z"
+                    android:strokeColor="#00000000"
+                    android:strokeWidth="1"/>
+        </group>
 
-    <group
-            android:name="card2"
-            android:rotation="-4.2"
-            android:translateY="-51.8"
-            android:translateX="14">
-        <path
-                android:fillColor="#828282"
-                android:fillType="nonZero"
-                android:pathData="M159.309,126.655L228.885,133.968A6.27,6.27 51,0 1,234.466 140.859L223.703,243.255A6.27,6.27 51,0 1,216.812 248.835L147.236,241.523A6.27,6.27 51,0 1,141.655 234.632L152.418,132.236A6.27,6.27 51,0 1,159.309 126.655z"
-                android:strokeColor="#00000000"
-                android:strokeWidth="1"/>
-    </group>
+        <group
+                android:name="card2"
+                android:rotation="-4.2"
+                android:translateY="-51.8"
+                android:translateX="14">
+            <path
+                    android:fillColor="#828282"
+                    android:fillType="nonZero"
+                    android:pathData="M159.309,126.655L228.885,133.968A6.27,6.27 51,0 1,234.466 140.859L223.703,243.255A6.27,6.27 51,0 1,216.812 248.835L147.236,241.523A6.27,6.27 51,0 1,141.655 234.632L152.418,132.236A6.27,6.27 51,0 1,159.309 126.655z"
+                    android:strokeColor="#00000000"
+                    android:strokeWidth="1"/>
+        </group>
 
-    <group
-            android:name="card3"
-            android:rotation="0"
-            android:translateY="42"
-            android:translateX="-32.2">
-        <path
-                android:fillColor="#828282"
-                android:fillType="nonZero"
-                android:pathData="M134.27,112L204.23,112A6.27,6.27 0,0 1,210.5 118.27L210.5,221.23A6.27,6.27 0,0 1,204.23 227.5L134.27,227.5A6.27,6.27 0,0 1,128 221.23L128,118.27A6.27,6.27 0,0 1,134.27 112z"
-                android:strokeColor="#00000000"
-                android:strokeWidth="1"/>
-    </group>
+        <group
+                android:name="card3"
+                android:rotation="0"
+                android:translateY="42"
+                android:translateX="-32.2">
+            <path
+                    android:fillColor="#828282"
+                    android:fillType="nonZero"
+                    android:pathData="M134.27,112L204.23,112A6.27,6.27 0,0 1,210.5 118.27L210.5,221.23A6.27,6.27 0,0 1,204.23 227.5L134.27,227.5A6.27,6.27 0,0 1,128 221.23L128,118.27A6.27,6.27 0,0 1,134.27 112z"
+                    android:strokeColor="#00000000"
+                    android:strokeWidth="1"/>
+        </group>
 
-    <group
-            android:name="card4"
-            android:rotation="0"
-            android:translateY="42"
-            android:translateX="39.2">
-        <path
-                android:fillColor="#FFFFFF"
-                android:fillType="nonZero"
-                android:pathData="M134.27,112L204.23,112A6.27,6.27 0,0 1,210.5 118.27L210.5,221.23A6.27,6.27 0,0 1,204.23 227.5L134.27,227.5A6.27,6.27 0,0 1,128 221.23L128,118.27A6.27,6.27 0,0 1,134.27 112z"
-                android:strokeColor="#00000000"
-                android:strokeWidth="1"/>
+        <group
+                android:name="card4"
+                android:rotation="0"
+                android:translateY="42"
+                android:translateX="39.2">
+            <path
+                    android:fillColor="#FFFFFF"
+                    android:fillType="nonZero"
+                    android:pathData="M134.27,112L204.23,112A6.27,6.27 0,0 1,210.5 118.27L210.5,221.23A6.27,6.27 0,0 1,204.23 227.5L134.27,227.5A6.27,6.27 0,0 1,128 221.23L128,118.27A6.27,6.27 0,0 1,134.27 112z"
+                    android:strokeColor="#00000000"
+                    android:strokeWidth="1"/>
+        </group>
     </group>
 </vector>
