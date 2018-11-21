@@ -13,13 +13,28 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#F5F0F0"
             tools:context="nl.entreco.scrumpoker.poker.PokerActivity">
 
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:paddingTop="60dp"
+                android:paddingBottom="100dp"
+                android:clipToPadding="false"
+                tools:listitem="@layout/card"/>
+
+        <nl.entreco.scrumpoker.poker.toggle.AnimatedToggle
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="18dp"
+                android:elevation="10dp"
+                android:background="@drawable/thumb_bg"
+                app:onCheckChangedListener="@{(view, isChecked) -> vm.toggle(isChecked)}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:layout_width="wrap_content"
@@ -27,9 +42,10 @@
                 android:layout_margin="18dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:onClick="@{() -> vm.reset()}"
+                app:backgroundTint="@color/green"
                 android:gravity="center"
-                android:elevation="20dp"
-                android:onClick="@{() -> vm.shuffle()}"/>
+                android:elevation="20dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

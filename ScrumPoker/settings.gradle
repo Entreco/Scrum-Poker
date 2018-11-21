@@ -1,1 +1,1 @@
-include ':app', ':libcore', ':poker', ':libcarousellm'
+include ':app', ':libcore', ':poker'

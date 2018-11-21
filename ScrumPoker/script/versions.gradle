@@ -1,6 +1,6 @@
 ext {
     kotlinVersion = '1.2.71'
-    gradleVersion = '3.3.0-beta03'
+    gradleVersion = '3.3.0-beta04'
     koinVersion = '1.0.2'
 
     xAppcompat = '1.0.2'
@@ -10,7 +10,6 @@ ext {
 
     ktx = '1.0.1'
     material = '1.0.0'
-//    carouselLayoutManager = '1.0.0'
 
     junit = '4.12'
 }

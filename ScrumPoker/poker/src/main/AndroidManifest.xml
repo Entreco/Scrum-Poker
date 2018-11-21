@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:dist="http://schemas.android.com/apk/distribution"
-          package="nl.entreco.scrumpoker.feature_poker">
+          package="nl.entreco.scrumpoker.poker">
 
     <dist:module
             dist:instant="true"
@@ -14,7 +14,6 @@
         <activity
                 android:name="nl.entreco.scrumpoker.poker.PokerActivity"
                 android:label="@string/title_activity_poker">
-
         </activity>
     </application>
 
