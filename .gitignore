@@ -71,3 +71,9 @@ android/\.idea/
 androidv2/\.idea/
 
 ScrumPoker/\.idea/
+
+ScrumPoker/script/keystore
+
+ScrumPoker/script/private_key\.pepk
+
+ScrumPoker/app/release/
