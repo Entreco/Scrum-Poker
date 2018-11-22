@@ -43,8 +43,8 @@ class SelectCardActivity : BaseActivity(), OnStartDragListener {
     override fun onResume() {
         super.onResume()
 
-//        setupGridView()
-        setupStackView()
+        setupGridView()
+//        setupStackView()
         viewModel.cards().observe(this, Observer {
             cardsAdapter.submitList(it)
         })
