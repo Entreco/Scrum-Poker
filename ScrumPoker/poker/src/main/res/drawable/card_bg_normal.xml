@@ -5,8 +5,8 @@
             <solid android:color="@color/pink"/>
             <stroke
                     android:color="#ffffff"
-                    android:width="8dp"/>
-            <corners android:radius="8dp"/>
+                    android:width="@dimen/card_stroke_width"/>
+            <corners android:radius="@dimen/card_corner_radius"/>
         </shape>
     </item>
 </layer-list>

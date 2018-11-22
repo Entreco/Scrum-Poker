@@ -15,10 +15,9 @@
             android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/Card"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:padding="12dp"
-                android:background="@drawable/card_bg"
                 android:clickable="true"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -26,43 +25,33 @@
                 android:focusable="true">
 
             <TextView
+                    style="@style/CardNumber.Top"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:textColor="#5E5858"
                     android:text="@{card.cardNumber}"
                     tools:textStyle="italic"
                     tools:text="100"/>
 
             <TextView
+                    style="@style/CardNumber"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:gravity="center"
-                    android:textSize="50sp"
-                    android:textColor="#5E5858"
                     android:text="@{card.cardNumber}"
                     tools:textStyle="italic"
                     tools:text="100"/>
 
             <TextView
+                    style="@style/CardNumber.Bottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:rotation="180"
-                    android:gravity="center"
-                    android:textSize="14sp"
-                    android:textColor="#5E5858"
                     android:text="@{card.cardNumber}"
                     tools:textStyle="italic"
                     tools:text="100"/>

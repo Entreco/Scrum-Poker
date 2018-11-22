@@ -17,7 +17,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 
-class AnimatedToggle @JvmOverloads constructor(
+class ToggleView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : FrameLayout(context, attrs, defStyleAttr), View.OnTouchListener {
 
@@ -44,7 +44,7 @@ class AnimatedToggle @JvmOverloads constructor(
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         maximumWidth = w - binding.thumb.measuredWidth.toFloat()
-        Log.v("[AnimatedToggle] onSizeChanged maxWidth", maximumWidth.toString())
+        Log.v("[ToggleView] onSizeChanged maxWidth", maximumWidth.toString())
     }
 
     override fun onTouch(arg0: View, arg1: MotionEvent): Boolean {

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Card">
+        <item name="android:padding">@dimen/card_padding</item>
+        <item name="android:background">@drawable/card_bg</item>
+    </style>
+
+    <style name="CardNumber">
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/card_text_color</item>
+        <item name="android:textSize">50sp</item>
+    </style>
+
+    <style name="CardNumber.Top">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="CardNumber.Bottom">
+        <item name="android:textSize">14sp</item>
+        <item name="android:rotation">180</item>
+    </style>
+</resources>
