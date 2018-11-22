@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_padding">@dimen/medium</dimen>
+    <dimen name="card_stroke_width">@dimen/def</dimen>
+    <dimen name="card_corner_radius">@dimen/def</dimen>
+</resources>

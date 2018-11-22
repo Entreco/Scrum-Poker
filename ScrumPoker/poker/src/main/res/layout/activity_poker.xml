@@ -17,16 +17,29 @@
             tools:context="nl.entreco.scrumpoker.poker.select.SelectCardActivity">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+        <nl.entreco.scrumpoker.poker.select.grid.CardsGridView
+                android:id="@+id/gridView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingTop="60dp"
+                android:paddingStart="@dimen/grid_spacing"
+                android:paddingEnd="@dimen/grid_spacing"
                 android:paddingBottom="100dp"
                 android:clipToPadding="false"
                 tools:listitem="@layout/card"/>
 
-        <nl.entreco.scrumpoker.poker.select.toggle.AnimatedToggle
+        <nl.entreco.scrumpoker.poker.select.stack.CardsStackView
+                android:id="@+id/stackView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="60dp"
+                android:paddingStart="@dimen/grid_spacing"
+                android:paddingEnd="@dimen/grid_spacing"
+                android:paddingBottom="100dp"
+                android:clipToPadding="false"
+                tools:listitem="@layout/card"/>
+
+        <nl.entreco.scrumpoker.poker.select.toggle.ToggleView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="18dp"

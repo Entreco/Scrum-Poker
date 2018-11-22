@@ -8,9 +8,11 @@ import androidx.lifecycle.ViewModel
 import nl.entreco.scrumpoker.poker.R
 import nl.entreco.scrumpoker.poker.model.Card
 import nl.entreco.scrumpoker.poker.model.Deck
+import java.util.concurrent.atomic.AtomicBoolean
 
 class SelectCardViewModel : ViewModel() {
 
+    val showStack = AtomicBoolean(false)
     private val items = MutableLiveData<List<Card>>()
     private val deck =
         Deck(
