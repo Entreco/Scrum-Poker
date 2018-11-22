@@ -14,11 +14,13 @@
     </style>
 
     <style name="CardNumber.Top">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">top</item>
     </style>
 
     <style name="CardNumber.Bottom">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:rotation">180</item>
+        <item name="android:gravity">top</item>
     </style>
 </resources>
