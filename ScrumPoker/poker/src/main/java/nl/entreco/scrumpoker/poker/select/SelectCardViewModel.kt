@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 class SelectCardViewModel : ViewModel() {
 
-    val showStack = AtomicBoolean(false)
+    private val toggled = MutableLiveData<Boolean>()
     private val items = MutableLiveData<List<Card>>()
     private val deck =
         Deck(
@@ -37,10 +37,12 @@ class SelectCardViewModel : ViewModel() {
 
     init {
         items.postValue(deck.get())
+        toggled.postValue(false)
     }
 
     fun toggle(isChecked: Boolean){
         items.postValue(deck.shuffle())
+        toggled.postValue(isChecked)
     }
 
     fun slide(view: View, progress: Float){
@@ -51,6 +53,9 @@ class SelectCardViewModel : ViewModel() {
         items.postValue(deck.get())
     }
 
+    fun toggle(): LiveData<Boolean>{
+        return toggled
+    }
 
     fun cards(): LiveData<List<Card>> {
         return items

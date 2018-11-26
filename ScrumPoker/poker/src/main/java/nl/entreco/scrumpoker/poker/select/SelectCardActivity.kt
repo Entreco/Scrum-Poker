@@ -2,6 +2,7 @@ package nl.entreco.scrumpoker.poker.select
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -14,11 +15,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 import org.koin.standalone.StandAloneContext.loadKoinModules
-import java.util.concurrent.atomic.AtomicBoolean
 import org.koin.android.ext.android.inject
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import nl.entreco.scrumpoker.poker.select.stack.StackLayoutManager
+import nl.entreco.scrumpoker.poker.select.carousel.CarouselLayoutManager
+import nl.entreco.scrumpoker.poker.select.carousel.CarouselZoomPostLayoutListener
+import nl.entreco.scrumpoker.poker.select.carousel.CenterScrollListener
 
 class SelectCardActivity : BaseActivity(), OnStartDragListener {
     val pokerModule = module {
@@ -38,19 +40,22 @@ class SelectCardActivity : BaseActivity(), OnStartDragListener {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_poker)
         binding.vm = viewModel
-    }
 
-    override fun onResume() {
-        super.onResume()
+        viewModel.toggle().observe(this, Observer{
+            if(it){
+                setupGridView()
+            } else {
+                setupStackView()
+            }
+        })
 
-        setupGridView()
-//        setupStackView()
         viewModel.cards().observe(this, Observer {
             cardsAdapter.submitList(it)
         })
     }
 
     private fun setupGridView() {
+        binding.stackView.visibility = View.GONE
         cardsAdapter.onDragListener = null
 
         binding.gridView.apply {
@@ -58,16 +63,26 @@ class SelectCardActivity : BaseActivity(), OnStartDragListener {
             setHasFixedSize(true)
             layoutManager = GridLayoutManager(this@SelectCardActivity, 3)
             addItemDecoration(GridItemDecorator(this@SelectCardActivity, R.dimen.grid_spacing))
+            visibility = View.VISIBLE
         }
     }
 
     private fun setupStackView() {
+        binding.gridView.visibility = View.GONE
 
         binding.stackView.apply {
             adapter = cardsAdapter
             setHasFixedSize(true)
-            layoutManager = StackLayoutManager(this@SelectCardActivity, RecyclerView.VERTICAL, true)
+//            layoutManager = StackLayoutManager(this@SelectCardActivity, RecyclerView.VERTICAL, true)
+            layoutManager = CarouselLayoutManager(
+                RecyclerView.VERTICAL,
+                true
+            ).apply {
+                setPostLayoutListener(CarouselZoomPostLayoutListener())
+            }
+            addOnScrollListener(CenterScrollListener())
             addItemDecoration(GridItemDecorator(this@SelectCardActivity, R.dimen.grid_spacing))
+            visibility = View.VISIBLE
         }
 
         val callback = StackCardTouchHelperCallback(cardsAdapter)

@@ -1,6 +1,7 @@
 package nl.entreco.scrumpoker.poker.select.stack
 
 import android.content.Context
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -26,8 +27,11 @@ class StackLayoutManager(context: Context?, orientation: Int, reverseLayout: Boo
         val childCount = childCount
         for (i in 0 until childCount) {
             getChildAt(i)?.let { view ->
-                view.translationY = -view.top.toFloat()
-                view.elevation = (childCount - i) * 2F
+
+                Log.i("REMCO", "i:$i top:${view.top} height:${view.height}")
+
+//                view.translationY = -view.top.toFloat()
+                view.elevation = i * 2F
                 view.rotation = (Math.random().toFloat() * 10) - 5
             }
         }

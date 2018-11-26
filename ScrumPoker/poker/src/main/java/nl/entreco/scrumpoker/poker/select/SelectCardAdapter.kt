@@ -29,7 +29,7 @@ class CardsAdapter : ListAdapter<Card, CardsAdapter.CardViewHolder>(differ), Car
 
         onDragListener?.let { listener ->
             // Start a drag whenever the handle view it touched
-            if(position == 0) {
+            if(position == items.size) {
                 holder.itemView.setOnTouchListener { view, event ->
                     if (event.action == MotionEvent.ACTION_DOWN) {
                         listener.onStartDrag(holder)

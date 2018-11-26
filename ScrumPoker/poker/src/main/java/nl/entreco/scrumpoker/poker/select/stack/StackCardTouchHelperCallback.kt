@@ -22,7 +22,7 @@ class StackCardTouchHelperCallback(private val adapter: CardTouchHelperAdapter) 
 //            return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
 //        } else {
             val dragFlags = 0
-            val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END or ItemTouchHelper.UP or ItemTouchHelper.DOWN
+            val swipeFlags = ItemTouchHelper.START or ItemTouchHelper.END
             return ItemTouchHelper.Callback.makeMovementFlags(dragFlags, swipeFlags)
 //        }
     }
