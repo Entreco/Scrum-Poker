@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:dist="http://schemas.android.com/apk/distribution"
           package="nl.entreco.scrumpoker">
-
-    <dist:module dist:instant="true"/>
 
     <application
             android:allowBackup="true"
@@ -25,6 +22,7 @@
                     android:autoVerify="true"
                     android:order="0">
                 <action android:name="android.intent.action.VIEW"/>
+
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
 
