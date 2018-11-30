@@ -11,8 +11,8 @@ android {
         applicationId "nl.entreco.scrumpoker"
         minSdkVersion config.minSdkVersion
         targetSdkVersion config.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode buildVersionCode()
+        versionName version
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -49,4 +49,11 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:$xConstraintLayout"
     implementation "com.google.android.material:material:$material"
     testImplementation "junit:junit:$junit"
+}
+
+android.applicationVariants.all { variant ->
+    def appName = "ScrumPoker"
+    variant.outputs.all { output ->
+        outputFileName = "${appName}-${variant.versionName}.apk"
+    }
 }
