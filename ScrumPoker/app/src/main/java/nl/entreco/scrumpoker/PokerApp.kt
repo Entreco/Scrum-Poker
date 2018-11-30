@@ -1,15 +1,25 @@
 package nl.entreco.scrumpoker
 
 import android.app.Application
-import org.koin.android.ext.android.startKoin
-import org.koin.dsl.module.module
+import nl.entreco.scrumpoker.dagger.AppModule
+import nl.entreco.scrumpoker.dagger.DaggerAppComponent
+import nl.entreco.scrumpoker.libcore.dagger.DaggerCoreComponent
 
 class PokerApp : Application() {
 
-    private val modules = listOf(module {})
+    private val coreComponent by lazy {
+        DaggerCoreComponent.builder()
+            .build()
+    }
+
+    val appComponent by lazy {
+        DaggerAppComponent.builder()
+            .coreComponent(coreComponent)
+            .build()
+    }
 
     override fun onCreate() {
         super.onCreate()
-        startKoin(this, modules)
+        appComponent.inject(this)
     }
 }

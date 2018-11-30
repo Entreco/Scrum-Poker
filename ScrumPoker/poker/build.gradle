@@ -1,6 +1,7 @@
 apply plugin: 'com.android.dynamic-feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     def config = rootProject.extensions.getByName("ext")
@@ -21,9 +22,14 @@ dependencies {
     implementation project(':app')
     implementation project(':libcore')
 
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
+
     implementation "androidx.appcompat:appcompat:$xAppcompat"
-    implementation "org.koin:koin-androidx-scope:$koinVersion"
-    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+//    implementation "org.koin:koin-androidx-scope:$koinVersion"
+//    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$xLifecycle"
 
     implementation "androidx.constraintlayout:constraintlayout:$xConstraintLayout"

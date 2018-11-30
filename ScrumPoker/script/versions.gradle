@@ -1,6 +1,6 @@
 ext {
-    kotlinVersion = '1.2.71'
-    gradleVersion = '3.3.0-beta04'
+    kotlinVersion = '1.3.0'
+    gradleVersion = '3.3.0-rc01'
     koinVersion = '1.0.2'
 
     android = [
@@ -14,6 +14,7 @@ ext {
             xConstraintLayout = '1.1.3',
             xRecyclerView = '1.0.0',
             xLifecycle = '2.0.0',
+            dagger = '2.19',
 
             ktx = '1.0.1',
             material = '1.0.0',

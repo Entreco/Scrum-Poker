@@ -1,16 +1,22 @@
 package nl.entreco.scrumpoker.poker.select
 
+import android.content.Context
+import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import nl.entreco.scrumpoker.libcore.dagger.scopes.FeatureScope
 import nl.entreco.scrumpoker.poker.R
 import nl.entreco.scrumpoker.poker.model.Card
 import nl.entreco.scrumpoker.poker.model.Deck
-import java.util.concurrent.atomic.AtomicBoolean
+import javax.inject.Inject
 
-class SelectCardViewModel : ViewModel() {
+class SelectCardViewModel @Inject constructor(
+    @FeatureScope private val handler: Handler,
+    @FeatureScope private val context: Context
+): ViewModel() {
 
     private val toggled = MutableLiveData<Boolean>()
     private val items = MutableLiveData<List<Card>>()
@@ -41,8 +47,10 @@ class SelectCardViewModel : ViewModel() {
     }
 
     fun toggle(isChecked: Boolean){
-        items.postValue(deck.shuffle())
-        toggled.postValue(isChecked)
+        handler.postDelayed({
+            items.postValue(deck.shuffle())
+            toggled.postValue(isChecked)
+        }, 500L)
     }
 
     fun slide(view: View, progress: Float){

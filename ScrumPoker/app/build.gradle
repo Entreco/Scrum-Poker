@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     def config = rootProject.extensions.getByName("ext")
@@ -35,9 +36,15 @@ dependencies {
     implementation project(':libcore')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
-    implementation "org.koin:koin-androidx-scope:$koinVersion"
+//    implementation "org.koin:koin-androidx-scope:$koinVersion"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:$dagger"
+    kapt "com.google.dagger:dagger-compiler:$dagger"
 
     implementation "androidx.appcompat:appcompat:$xAppcompat"
+    implementation "androidx.lifecycle:lifecycle-extensions:$xLifecycle"
+
     implementation "androidx.core:core-ktx:$ktx"
     implementation "androidx.constraintlayout:constraintlayout:$xConstraintLayout"
     implementation "com.google.android.material:material:$material"
