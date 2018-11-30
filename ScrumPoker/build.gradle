@@ -11,6 +11,8 @@ buildscript {
     }
 }
 
+apply from: 'script/versioning.gradle'
+
 allprojects {
     repositories {
         google()
