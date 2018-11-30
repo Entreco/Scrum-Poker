@@ -6,43 +6,35 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import nl.entreco.scrumpoker.BaseActivity
 import nl.entreco.scrumpoker.GridItemDecorator
 import nl.entreco.scrumpoker.poker.R
+import nl.entreco.scrumpoker.poker.dagger.PokerModule
+import nl.entreco.scrumpoker.poker.dagger.module
 import nl.entreco.scrumpoker.poker.databinding.ActivityPokerBinding
-import nl.entreco.scrumpoker.poker.select.stack.StackCardTouchHelperCallback
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import org.koin.androidx.viewmodel.ext.koin.viewModel
-import org.koin.dsl.module.module
-import org.koin.standalone.StandAloneContext.loadKoinModules
-import org.koin.android.ext.android.inject
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import nl.entreco.scrumpoker.poker.select.carousel.CarouselLayoutManager
 import nl.entreco.scrumpoker.poker.select.carousel.CarouselZoomPostLayoutListener
 import nl.entreco.scrumpoker.poker.select.carousel.CenterScrollListener
+import nl.entreco.scrumpoker.poker.select.stack.StackCardTouchHelperCallback
 
 class SelectCardActivity : BaseActivity(), OnStartDragListener {
-    val pokerModule = module {
-        viewModel { SelectCardViewModel() }
-        single { CardsAdapter() }
-    }
 
     private lateinit var binding: ActivityPokerBinding
 
-    private val viewModel: SelectCardViewModel by viewModel()
-    private val cardsAdapter: CardsAdapter by inject()
+    private val component by module { it.plus(PokerModule()) }
+    private val viewModel by viewModel { component.viewModel() }
+    private val cardsAdapter by lazy { component.adapter() }
     private var itemTouchHelper: ItemTouchHelper? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        loadKoinModules(pokerModule)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_poker)
         binding.vm = viewModel
 
-        viewModel.toggle().observe(this, Observer{
-            if(it){
+        viewModel.toggle().observe(this, Observer {
+            if (it) {
                 setupGridView()
             } else {
                 setupStackView()

@@ -12,8 +12,9 @@ import nl.entreco.scrumpoker.poker.databinding.CardBinding
 import nl.entreco.scrumpoker.poker.model.Card
 import nl.entreco.scrumpoker.poker.R
 import java.util.*
+import javax.inject.Inject
 
-class CardsAdapter : ListAdapter<Card, CardsAdapter.CardViewHolder>(differ), CardTouchHelperAdapter {
+class CardsAdapter @Inject constructor(): ListAdapter<Card, CardsAdapter.CardViewHolder>(differ), CardTouchHelperAdapter {
 
     var onDragListener: OnStartDragListener? = null
     private val items = mutableListOf<Card>()

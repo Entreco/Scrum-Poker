@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.databinding.Bindable
 import androidx.databinding.DataBindingUtil
+import androidx.databinding.Observable
 import nl.entreco.scrumpoker.poker.R
 import nl.entreco.scrumpoker.poker.databinding.WidgetToggleBinding
 import java.util.concurrent.atomic.AtomicBoolean
@@ -19,7 +20,7 @@ import kotlin.math.min
 
 class ToggleView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr), View.OnTouchListener {
+) : FrameLayout(context, attrs, defStyleAttr), View.OnTouchListener, Observable {
 
     private val inflater by lazy { LayoutInflater.from(context) }
     private val binding = DataBindingUtil.inflate<WidgetToggleBinding>(inflater, R.layout.widget_toggle, this, true)
@@ -31,6 +32,10 @@ class ToggleView @JvmOverloads constructor(
 
     @Bindable
     var onProgressChangedListener: OnProgessChangedListener? = null
+
+    override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {}
+
+    override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {}
 
     init {
         binding.thumb.setOnTouchListener(this)
